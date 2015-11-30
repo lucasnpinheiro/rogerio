@@ -1,0 +1,3 @@
+@media print {
+    .boleto-pagina {page-break-after: always;}
+}

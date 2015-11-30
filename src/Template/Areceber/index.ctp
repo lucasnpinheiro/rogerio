@@ -1,7 +1,7 @@
 
 <div class="areceber index large-9 medium-8 columns content">
     <h3><?= __('Areceber') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-bordered table-condensed table-hover table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('nro_docto') ?></th>
@@ -16,29 +16,27 @@
         </thead>
         <tbody>
             <?php foreach ($areceber as $areceber): ?>
-            <tr>
-                <td><?= h($areceber->nro_docto) ?></td>
-                <td><?= h($areceber->dt_vencto) ?></td>
-                <td><?= $areceber->has('cliente') ? $this->Html->link($areceber->cliente->id, ['controller' => 'Clientes', 'action' => 'view', $areceber->cliente->id]) : '' ?></td>
-                <td><?= $this->Number->format($areceber->valor) ?></td>
-                <td><?= $this->Number->format($areceber->parcela) ?></td>
-                <td><?= $this->Number->format($areceber->vl_juros) ?></td>
-                <td><?= $this->Number->format($areceber->vl_multa) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $areceber->nro_docto]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $areceber->nro_docto]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $areceber->nro_docto], ['confirm' => __('Are you sure you want to delete # {0}?', $areceber->nro_docto)]) ?>
-                </td>
-            </tr>
+                <tr>
+                    <td><?= h($areceber->nro_docto) ?></td>
+                    <td><?= h($areceber->dt_vencto) ?></td>
+                    <td><?= $areceber->has('cliente') ? $this->Html->link($areceber->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $areceber->cliente->id]) : '' ?></td>
+                    <td><?= $this->Number->format($areceber->valor) ?></td>
+                    <td><?= $this->Number->format($areceber->parcela) ?></td>
+                    <td><?= $this->Number->format($areceber->vl_juros) ?></td>
+                    <td><?= $this->Number->format($areceber->vl_multa) ?></td>
+                    <td class="actions">
+                        <?php
+                        echo $this->Form->dropdownButton('Ações', [
+                            $this->Html->link(__('View'), ['action' => 'view', $areceber->id]),
+                            $this->Html->link(__('Edit'), ['action' => 'edit', $areceber->id]),
+                            'divider',
+                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $areceber->id], ['confirm' => __('Are you sure you want to delete # {0}?', $areceber->id)])
+                        ]);
+                        ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+    <?php echo $this->element('paginacao'); ?>
 </div>

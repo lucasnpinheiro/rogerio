@@ -54,6 +54,7 @@ use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
+
 /**
  * Read configuration file and inject configuration into various
  * CakePHP classes.
@@ -98,6 +99,7 @@ mb_internal_encoding(Configure::read('App.encoding'));
  * formatted and sets the default language to use for translations.
  */
 ini_set('intl.default_locale', 'pt_BR');
+
 
 
 
@@ -181,6 +183,7 @@ Request::addDetector('tablet', function ($request) {
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
+
 
 Plugin::load('Migrations');
 

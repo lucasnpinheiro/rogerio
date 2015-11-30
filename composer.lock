@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "48af68cab4b431812228782adb7aefec",
-    "content-hash": "791f70a0b9ea1aef72311f358f6eedfb",
+    "hash": "ef4c9b6753dc961573c92bfc96e1d2af",
+    "content-hash": "d809f8a04eceb451359d16dda8e04398",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -128,16 +128,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.1.4",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "46abd7761c0528ad6eee5da6dde292abbeade851"
+                "reference": "bfc9cfbb8508e1014e183f35aff082fd584c00d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/46abd7761c0528ad6eee5da6dde292abbeade851",
-                "reference": "46abd7761c0528ad6eee5da6dde292abbeade851",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/bfc9cfbb8508e1014e183f35aff082fd584c00d7",
+                "reference": "bfc9cfbb8508e1014e183f35aff082fd584c00d7",
                 "shasum": ""
             },
             "require": {
@@ -194,7 +194,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-11-06 03:48:56"
+            "time": "2015-11-30 03:10:23"
         },
         {
             "name": "cakephp/migrations",
@@ -364,6 +364,47 @@
                 "password"
             ],
             "time": "2014-11-20 16:49:30"
+        },
+        {
+            "name": "kriansa/openboleto",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriansa/openboleto.git",
+                "reference": "ae70c2502b12cfbdad28377cddd8014031de76ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriansa/openboleto/zipball/ae70c2502b12cfbdad28377cddd8014031de76ce",
+                "reference": "ae70c2502b12cfbdad28377cddd8014031de76ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "OpenBoleto\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Garajau",
+                    "email": "kriansa@facebook.com"
+                }
+            ],
+            "description": "Biblioteca para geração de boletos bancários.",
+            "homepage": "http://github.com/kriansa/openboleto",
+            "keywords": [
+                "boleto",
+                "boleto bancario"
+            ],
+            "time": "2013-08-04 20:53:31"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

@@ -33,9 +33,7 @@ class ClientesTable extends Table
         $this->hasMany('Areceber', [
             'foreignKey' => 'cliente_id'
         ]);
-        $this->hasMany('OrdemServico', [
-            'foreignKey' => 'cliente_id'
-        ]);
+       
     }
 
     /**

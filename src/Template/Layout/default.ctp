@@ -31,17 +31,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('script') ?>
 
         <!-- Bootstrap Core CSS -->
-        <?= $this->Html->css('/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>
-
+        <?= $this->Html->css('/css/bootstrap.min.css') ?>
         <?= $this->Html->css('/bower_components/metisMenu/dist/metisMenu.min.css') ?>
-
         <?= $this->Html->css('/dist/css/timeline.css') ?>
-
         <?= $this->Html->css('/dist/css/sb-admin-2.css') ?>
-
         <?= $this->Html->css('/bower_components/morrisjs/morris.css') ?>
-
         <?= $this->Html->css('/bower_components/font-awesome/css/font-awesome.min.css') ?>
+        <?= $this->Html->css('/css/basico.css') ?>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,8 +45,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-
 
     </head>
     <body>
@@ -75,8 +69,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <ul class="nav" id="side-menu">
 
                             <li>
-                                <?= $this->Html->link('Inicial', '/') ?>
-
+                                <?= $this->Html->link('<i class="fa fa-home"></i>  Inicial', '/', ['escape' => false]) ?>
                             </li>
                             <li>
                                 <?php echo $this->element('Cadastros'); ?>
@@ -99,12 +92,37 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <div class="col-lg-12">
                         <h1 class="page-header"><?= $this->fetch('title') ?></h1>
                     </div>
+
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                 <div class="row">
                     <?= $this->Flash->render() ?>
-                    <?php echo $this->fetch('content'); ?>
+                    <div class="col-lg-12 text-right">
+                        <div class="btn-group" role="group" aria-label="">
+                            <?php
+                            switch ($this->request->params['action']) {
+                                case 'add':
+                                    echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info']);
+                                    break;
+                                case 'edit':
+                                    echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info']);
+                                    echo $this->Html->link(__('Add'), ['action' => 'add'], ['class' => 'btn btn-success']);
+                                    echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $this->request->params['pass'][0]], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $this->request->params['pass'][0])]);
+
+                                    break;
+
+                                default:
+                                    echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info']);
+                                    echo $this->Html->link(__('Add'), ['action' => 'add'], ['class' => 'btn btn-success']);
+                                    break;
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <?php echo $this->fetch('content'); ?>
+                    </div>
                 </div>
                 <!-- /.row -->
 
@@ -116,6 +134,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <!-- /#wrapper -->
 
         <?php echo $this->Html->script('/js/jquery-1.11.3.min.js') ?>
+        <?php echo $this->Html->script('/js/bootstrap.min.js') ?>
+        <?php echo $this->Html->script('/bower_components/metisMenu/dist/metisMenu.min.js') ?>
+        <?php echo $this->Html->script('/bower_components/raphael/raphael-min.js') ?>
+        <?php echo $this->Html->script('/dist/js/sb-admin-2.js') ?>
         <?php echo $this->Html->script('/js/jquery.mask.min.js') ?>
         <?php echo $this->Html->script('/js/Funcoes.js') ?>
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,16 +9,14 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\ClientesTable $Clientes
  */
-class ClientesController extends AppController
-{
+class ClientesController extends AppController {
 
     /**
      * Index method
      *
      * @return void
      */
-    public function index()
-    {
+    public function index() {
         $this->set('clientes', $this->paginate($this->Clientes));
         $this->set('_serialize', ['clientes']);
     }
@@ -29,10 +28,9 @@ class ClientesController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $cliente = $this->Clientes->get($id, [
-            'contain' => ['Areceber', 'OrdemServico']
+            'contain' => ['Areceber']
         ]);
         $this->set('cliente', $cliente);
         $this->set('_serialize', ['cliente']);
@@ -43,8 +41,7 @@ class ClientesController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $cliente = $this->Clientes->newEntity();
         if ($this->request->is('post')) {
             $cliente = $this->Clientes->patchEntity($cliente, $this->request->data);
@@ -66,8 +63,7 @@ class ClientesController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $cliente = $this->Clientes->get($id, [
             'contain' => []
         ]);
@@ -91,8 +87,7 @@ class ClientesController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $cliente = $this->Clientes->get($id);
         if ($this->Clientes->delete($cliente)) {
@@ -102,4 +97,5 @@ class ClientesController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
 }
