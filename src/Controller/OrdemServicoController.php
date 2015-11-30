@@ -221,4 +221,59 @@ class OrdemServicoController extends AppController {
         $this->set('url_retorno', $this->referer());
     }
 
+    public function word() {
+        $arquivo = 'planilha.rtf'; // Definindo o nome do documento e sua extensão – .doc ou .xls
+
+        $html = '';
+
+        $html .= '<table>';
+
+        $html .= '<tr>';
+
+        $html .= '<td colspan=”3″>Planilha teste</tr>';
+
+        $html .= '</tr>';
+
+        $html .= '<tr>';
+
+        $html .= '<td><b>Coluna 1</b></td>';
+
+        $html .= '<td><b>Coluna 2</b></td>';
+
+        $html .= '<td><b>Coluna 3</b></td>';
+
+        $html .= '</tr>';
+
+        $html .= '<tr>';
+
+        $html .= '<td>Linha 1 Coluna 1</td>';
+
+        $html .= '<td>Linha 1 Coluna 2</td>';
+
+        $html .= '<td>Linha 1 Coluna 3</td>';
+
+        $html .= '</tr>';
+
+        $html .= '<tr>';
+
+        $html .= '<td>Linha 2 Coluna 1</td>';
+
+        $html .= '<td>Linha 2 Coluna 2</td>';
+
+        $html .= '<td>Linha 2 Coluna 3</td>';
+
+        $html .= '</tr>';
+
+        $html .= '</table>';
+
+        header('Content-type: application/vnd.ms-word');
+        header('Content-type: application/force-download');
+        header('Content-Disposition: attachment; filename="' . $arquivo . '"');
+        header('Pragma: no-cache');
+
+        echo $html; //Mostrando o arquivo
+
+        exit;
+    }
+
 }
