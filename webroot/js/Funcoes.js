@@ -2,12 +2,13 @@ $(document).ready(function () {
     $('.data').mask('00/00/0000');
     $('.cpf').mask('000.000.000-00');
     $('.cep').mask('00000-000');
+    $('.moeda').maskMoney({prefix: '', allowNegative: true, thousands: '.', decimal: ',', affixesStay: false});
 
     $('#contrato-id').change(function (e) {
         e.preventDefault();
         $.ajax({
             method: "GET",
-            url: "/Rogerio/contratos/modelo/" + $(this).val(),
+            url: url + "contratos/modelo/" + $(this).val(),
             dataType: "html",
             success: function (a) {
                 $('#modelo').val(a);

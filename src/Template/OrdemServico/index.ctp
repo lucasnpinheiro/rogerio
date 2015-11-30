@@ -8,27 +8,24 @@
                 <th><?= $this->Paginator->sort('valor') ?></th>
                 <th><?= $this->Paginator->sort('parcelas') ?></th>
                 <th><?= $this->Paginator->sort('dt_vencto') ?></th>
-                <th><?= $this->Paginator->sort('cliente_id') ?></th>
                 <th><?= $this->Paginator->sort('juros') ?></th>
                 <th><?= $this->Paginator->sort('multa') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($ordemServico as $ordemServico): ?>
+            <?php foreach ($ordemServicos as $ordemServico):
+                ?>
                 <tr>
                     <td><?= $this->Number->format($ordemServico->id) ?></td>
                     <td><?= $this->Number->format($ordemServico->valor) ?></td>
                     <td><?= $this->Number->format($ordemServico->parcelas) ?></td>
-                    <td><?= h($ordemServico->dt_vencto) ?></td>
-                    <td><?= $ordemServico->has('cliente') ? $this->Html->link($ordemServico->cliente->id, ['controller' => 'Clientes', 'action' => 'view', $ordemServico->cliente->id]) : '' ?></td>
+                    <td><?= h($ordemServico->dt_vencto->format('d/m/Y')) ?></td>
                     <td><?= $this->Number->format($ordemServico->juros) ?></td>
                     <td><?= $this->Number->format($ordemServico->multa) ?></td>
                     <td class="actions">
                         <?php
                         echo $this->Form->dropdownButton('Ações', [
-                            $this->Html->link(__('View'), ['action' => 'view', $ordemServico->id]),
-                            $this->Html->link(__('Edit'), ['action' => 'edit', $ordemServico->id]),
                             $this->Html->link(__('Boletos'), ['action' => 'imprimir_boletos', $ordemServico->id]),
                             'divider',
                             $this->Form->postLink(__('Delete'), ['action' => 'delete', $ordemServico->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ordemServico->id)])

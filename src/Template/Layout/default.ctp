@@ -28,7 +28,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
         <?= $this->fetch('meta') ?>
         <?= $this->fetch('css') ?>
-        <?= $this->fetch('script') ?>
+
 
         <!-- Bootstrap Core CSS -->
         <?= $this->Html->css('/css/bootstrap.min.css') ?>
@@ -45,6 +45,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <script>
+            var url = "<?php echo $this->Url->build('/', true) ?>";
+        </script>
 
     </head>
     <body>
@@ -139,7 +143,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php echo $this->Html->script('/bower_components/raphael/raphael-min.js') ?>
         <?php echo $this->Html->script('/dist/js/sb-admin-2.js') ?>
         <?php echo $this->Html->script('/js/jquery.mask.min.js') ?>
+        <?php echo $this->Html->script('/js/jquery.maskMoney.min.js') ?>
         <?php echo $this->Html->script('/js/Funcoes.js') ?>
+        <?php echo $this->fetch('script') ?>
 
 
     </body>

@@ -50,7 +50,7 @@ class AppController extends Controller
         'Modal'=>[
             'className'=>'Bootstrap.BootstrapModal'
         ],
-        'Customizado'
+        'MyForm'
     ];
     
     /**

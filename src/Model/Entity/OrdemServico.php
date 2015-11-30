@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
@@ -16,8 +17,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  */
-class OrdemServico extends Entity
-{
+class OrdemServico extends Entity {
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -30,6 +30,14 @@ class OrdemServico extends Entity
      */
     protected $_accessible = [
         '*' => true,
+        'clientes' => true,
         'id' => false,
     ];
+    protected $_virtual = ['clientes'];
+
+    protected function _getClientes() {
+        $find = \Cake\ORM\TableRegistry::get('Clientes');
+        return $find->find('all')->where(['id' => $this->cliente_id])->first()->toArray();
+    }
+
 }

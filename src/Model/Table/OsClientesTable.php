@@ -30,12 +30,16 @@ class OsClientesTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        $this->belongsTo('Clientes', [
+            'foreignKey' => 'cliente_id'
+        ]);
         $this->belongsTo('OrdemServico', [
             'foreignKey' => 'ordem_servico_id'
         ]);
         $this->hasMany('Areceber', [
             'foreignKey' => 'os_cliente_id'
         ]);
+        
     }
 
     /**

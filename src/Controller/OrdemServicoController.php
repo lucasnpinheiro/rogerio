@@ -20,10 +20,11 @@ class OrdemServicoController extends AppController {
      */
     public function index() {
         $this->paginate = [
-            'contain' => []
+            'contain' => ['OsClientes'],
+            'order' => ['id' => 'desc']
         ];
-        $this->set('ordemServico', $this->paginate($this->OrdemServico));
-        $this->set('_serialize', ['ordemServico']);
+        $this->set('ordemServicos', $this->paginate($this->OrdemServico));
+        $this->set('_serialize', ['ordemServicos']);
     }
 
     /**
@@ -37,6 +38,7 @@ class OrdemServicoController extends AppController {
         $ordemServico = $this->OrdemServico->get($id, [
             'contain' => ['Clientes']
         ]);
+
         $this->set('ordemServico', $ordemServico);
         $this->set('_serialize', ['ordemServico']);
     }
@@ -221,57 +223,22 @@ class OrdemServicoController extends AppController {
         $this->set('url_retorno', $this->referer());
     }
 
-    public function word() {
-        $arquivo = 'planilha.rtf'; // Definindo o nome do documento e sua extensão – .doc ou .xls
-
-        $html = '';
-
-        $html .= '<table>';
-
-        $html .= '<tr>';
-
-        $html .= '<td colspan=”3″>Planilha teste</tr>';
-
-        $html .= '</tr>';
-
-        $html .= '<tr>';
-
-        $html .= '<td><b>Coluna 1</b></td>';
-
-        $html .= '<td><b>Coluna 2</b></td>';
-
-        $html .= '<td><b>Coluna 3</b></td>';
-
-        $html .= '</tr>';
-
-        $html .= '<tr>';
-
-        $html .= '<td>Linha 1 Coluna 1</td>';
-
-        $html .= '<td>Linha 1 Coluna 2</td>';
-
-        $html .= '<td>Linha 1 Coluna 3</td>';
-
-        $html .= '</tr>';
-
-        $html .= '<tr>';
-
-        $html .= '<td>Linha 2 Coluna 1</td>';
-
-        $html .= '<td>Linha 2 Coluna 2</td>';
-
-        $html .= '<td>Linha 2 Coluna 3</td>';
-
-        $html .= '</tr>';
-
-        $html .= '</table>';
+    private function word($contrato, $clientes) {
+        $arquivo = 'contratos.rtf';
+        $c = '';
+        foreach ($clientes as $key => $value) {
+            $cliente = \Cake\ORM\TableRegistry::get('Clientes')->get($value);
+            foreach ($cliente as $k => $v) {
+                
+            }
+        }
 
         header('Content-type: application/vnd.ms-word');
         header('Content-type: application/force-download');
         header('Content-Disposition: attachment; filename="' . $arquivo . '"');
         header('Pragma: no-cache');
 
-        echo $html; //Mostrando o arquivo
+        echo $contrato; //Mostrando o arquivo
 
         exit;
     }
