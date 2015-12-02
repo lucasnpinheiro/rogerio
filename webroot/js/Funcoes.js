@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $('.cep').change(function () {
         $.ajax({
-            url: 'http://williarts.com.br/cep_novo/' + $(this).val() + '.json',
+            url: 'http://cep.agenciavoxel.com.br/' + $(this).val() + '.json',
             dataType: "json",
             async: true,
             success: function (a) {

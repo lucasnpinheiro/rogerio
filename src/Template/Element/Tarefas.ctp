@@ -1,7 +1,8 @@
-<a href="#"><i class="fa fa-cogs fa-fw"></i> Tarefas<span class="fa arrow"></span></a>
-<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+<a href="#">
+    <i class="fa fa-cogs"></i> <span>Tarefas</span> <i class="fa fa-angle-left pull-right"></i>
+</a>
+<ul class="treeview-menu">
     <li>
         <?= $this->Html->link('Ordem de Servico', ['controller' => 'OrdemServico', 'action' => 'add']) ?>
     </li>
-
 </ul>

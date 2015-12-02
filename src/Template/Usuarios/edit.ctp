@@ -4,9 +4,9 @@
     <fieldset>
         <legend><?= __('Editar Usuario') ?></legend>
         <?php
-            echo $this->Form->input('nome');
-            echo $this->Form->input('username');
-            echo $this->Form->input('senha');
+        echo $this->Form->input('nome');
+        echo $this->Form->input('username');
+        echo $this->Form->input('senha', ['value' => '']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gravar')) ?>

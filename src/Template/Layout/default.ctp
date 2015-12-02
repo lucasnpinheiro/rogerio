@@ -1,107 +1,130 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <?= $this->Html->charset() ?>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <title>
-            <?= $cakeDescription ?>:
             <?= $this->fetch('title') ?>
         </title>
         <?= $this->Html->meta('icon') ?>
-
         <?= $this->fetch('meta') ?>
+
+        <!-- Bootstrap 3.3.5 -->
+        <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
+        <!-- Font Awesome -->
+        <?= $this->Html->css('/plugins/font-awesome-/css/font-awesome.min.css') ?>
+        <!-- Ionicons -->
+        <?= $this->Html->css('/css/ionicons.min.css') ?>
+        <!-- jvectormap -->
+        <?= $this->Html->css('/plugins/jvectormap/jquery-jvectormap-1.2.2.css') ?>
+        <!-- Theme style -->
+        <?= $this->Html->css('/dist/css/AdminLTE.min.css') ?>
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <?= $this->Html->css('/dist/css/skins/_all-skins.min.css') ?>
         <?= $this->fetch('css') ?>
-
-
-        <!-- Bootstrap Core CSS -->
-        <?= $this->Html->css('/css/bootstrap.min.css') ?>
-        <?= $this->Html->css('/bower_components/metisMenu/dist/metisMenu.min.css') ?>
-        <?= $this->Html->css('/dist/css/timeline.css') ?>
-        <?= $this->Html->css('/dist/css/sb-admin-2.css') ?>
-        <?= $this->Html->css('/bower_components/morrisjs/morris.css') ?>
-        <?= $this->Html->css('/bower_components/font-awesome/css/font-awesome.min.css') ?>
-        <?= $this->Html->css('/css/basico.css') ?>
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-        <script>
-            var url = "<?php echo $this->Url->build('/', true) ?>";
-        </script>
-
     </head>
-    <body>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
-        <div id="wrapper">
+            <header class="main-header">
 
-            <!-- Navigation -->
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <!-- Logo -->
+                <a href="index2.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>R</b>AD</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Rogerio</b> Advogado</span>
+                </a>
+
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Rogerio</a>
-                </div>
+                    </a>
+                    <!-- Navbar Right Menu -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <?php echo $this->Html->image('/img/user.jpg', ['class' => 'user-image', 'alt' => $this->request->session()->read('Auth.User.nome')]) ?>
+                                    <span class="hidden-xs"><?php echo $this->request->session()->read('Auth.User.nome'); ?></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                        <?php echo $this->Html->image('/img/user.jpg', ['class' => 'img-circle', 'alt' => $this->request->session()->read('Auth.User.nome')]) ?>
 
-
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-
-                            <li>
-                                <?= $this->Html->link('<i class="fa fa-home"></i>  Inicial', '/', ['escape' => false]) ?>
+                                        <p>
+                                            <?php echo $this->request->session()->read('Auth.User.nome'); ?>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <?= $this->Html->link('Sair', ['controller' => 'Usuarios', 'action' => 'logout'], ['class' => 'btn btn-default btn-flat']) ?>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <?php echo $this->element('Cadastros'); ?>
-                            </li>
-                            <li>
-                                <?php echo $this->element('Tarefas'); ?>
-                            </li>
-                            <li>
-                                <?php echo $this->element('Financeiro'); ?>
-                            </li>
+                            <!-- Control Sidebar Toggle Button -->
                         </ul>
                     </div>
-                    <!-- /.sidebar-collapse -->
-                </div>
-                <!-- /.navbar-static-side -->
-            </nav>
 
-            <div id="page-wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header"><?= $this->fetch('title') ?></h1>
-                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li>
+                            <?= $this->Html->link('<i class="fa fa-home"></i>  <span>Inicial</span>', '/', ['escape' => false]) ?>
+                        </li>
+                        <li class="treeview">
+                            <?php echo $this->element('Cadastros'); ?>
+                        </li>
+                        <li class="treeview">
+                            <?php echo $this->element('Tarefas'); ?>
+                        </li>
+                        <li class="treeview">
+                            <?php echo $this->element('Financeiro'); ?>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
 
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-                <div class="row">
-                    <?= $this->Flash->render() ?>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        <?= $this->fetch('title') ?>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <?php echo $this->Html->link('<i class="fa fa-dashboard"></i>' . __($this->request->params['controller']), '/', ['escape' => false]) ?>
+                        </li>
+                        <li class="active"><?php echo __(ucwords($this->request->params['action'])); ?></li>
+                    </ol>
                     <div class="col-lg-12 text-right">
                         <div class="btn-group" role="group" aria-label="">
                             <?php
@@ -124,29 +147,41 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             ?>
                         </div>
                     </div>
+                </section>
+
+                <!-- Main content -->
+                <div class="row">
+                    <?= $this->Flash->render() ?>
+
                     <div class="col-lg-12">
                         <?php echo $this->fetch('content'); ?>
                     </div>
                 </div>
-                <!-- /.row -->
-
-                <!-- /.row -->
+                <!-- /.content -->
             </div>
-            <!-- /#page-wrapper -->
+            <!-- /.content-wrapper -->
+
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.3.1
+                </div>
+                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+                reserved.
+            </footer>
 
         </div>
-        <!-- /#wrapper -->
+        <!-- ./wrapper -->
 
-        <?php echo $this->Html->script('/js/jquery-1.11.3.min.js') ?>
-        <?php echo $this->Html->script('/js/bootstrap.min.js') ?>
-        <?php echo $this->Html->script('/bower_components/metisMenu/dist/metisMenu.min.js') ?>
-        <?php echo $this->Html->script('/bower_components/raphael/raphael-min.js') ?>
-        <?php echo $this->Html->script('/dist/js/sb-admin-2.js') ?>
-        <?php echo $this->Html->script('/js/jquery.mask.min.js') ?>
-        <?php echo $this->Html->script('/js/jquery.maskMoney.min.js') ?>
-        <?php echo $this->Html->script('/js/Funcoes.js') ?>
+        <!-- jQuery 2.1.4 -->
+        <?php echo $this->Html->script('/plugins/jQuery/jQuery-2.1.4.min.js') ?>
+        <?php echo $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
+        <?php echo $this->Html->script('/plugins/fastclick/fastclick.js') ?>
+        <?php echo $this->Html->script('/dist/js/app.min.js') ?>
+        <?php echo $this->Html->script('/plugins/sparkline/jquery.sparkline.min.js') ?>
+        <?php echo $this->Html->script('/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') ?>
+        <?php echo $this->Html->script('/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') ?>
+        <?php echo $this->Html->script('/plugins/slimScroll/jquery.slimscroll.min.js') ?>
+        <?php echo $this->Html->script('/plugins/chartjs/Chart.min.js') ?>
         <?php echo $this->fetch('script') ?>
-
-
     </body>
 </html>

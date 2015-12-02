@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,16 +9,39 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\UsuariosTable $Usuarios
  */
-class UsuariosController extends AppController
-{
+class UsuariosController extends AppController {
+
+    /**
+     * Login method
+     *
+     * @return void
+     */
+    public function login() {
+        $this->viewBuilder()->layout('login');
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect(['controller' => 'Usuarios', 'action' => 'index']);
+            }
+            $this->Flash->error(__('Usuário ou senha invalidos.'));
+        } else {
+            if (!is_null($this->Auth->user())) {
+                return $this->redirect(['controller' => 'Usuarios', 'action' => 'index']);
+            }
+        }
+    }
+
+    public function logout() {
+        return $this->redirect($this->Auth->logout());
+    }
 
     /**
      * Index method
      *
      * @return void
      */
-    public function index()
-    {
+    public function index() {
         $this->set('usuarios', $this->paginate($this->Usuarios));
         $this->set('_serialize', ['usuarios']);
     }
@@ -29,8 +53,7 @@ class UsuariosController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $usuario = $this->Usuarios->get($id, [
             'contain' => []
         ]);
@@ -43,8 +66,7 @@ class UsuariosController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $usuario = $this->Usuarios->newEntity();
         if ($this->request->is('post')) {
             $usuario = $this->Usuarios->patchEntity($usuario, $this->request->data);
@@ -66,8 +88,7 @@ class UsuariosController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $usuario = $this->Usuarios->get($id, [
             'contain' => []
         ]);
@@ -91,8 +112,7 @@ class UsuariosController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $usuario = $this->Usuarios->get($id);
         if ($this->Usuarios->delete($usuario)) {
@@ -102,4 +122,5 @@ class UsuariosController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
 }

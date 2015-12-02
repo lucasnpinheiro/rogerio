@@ -198,16 +198,16 @@
         },
         {
             "name": "cakephp/migrations",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/migrations.git",
-                "reference": "f4e00086ba03a2c8a339d27892f1eb801f9c209c"
+                "reference": "800d4f783987954627f45201eb09686b0318cbce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/f4e00086ba03a2c8a339d27892f1eb801f9c209c",
-                "reference": "f4e00086ba03a2c8a339d27892f1eb801f9c209c",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/800d4f783987954627f45201eb09686b0318cbce",
+                "reference": "800d4f783987954627f45201eb09686b0318cbce",
                 "shasum": ""
             },
             "require": {
@@ -244,7 +244,7 @@
                 "cakephp",
                 "migrations"
             ],
-            "time": "2015-11-30 20:12:16"
+            "time": "2015-12-01 20:29:21"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -718,25 +718,25 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "3e661a0d521ac67496515fa6e6704bd61bcfff60"
+                "reference": "692d98d813e4ef314b9c22775c86ddbeb0f44884"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3e661a0d521ac67496515fa6e6704bd61bcfff60",
-                "reference": "3e661a0d521ac67496515fa6e6704bd61bcfff60",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/692d98d813e4ef314b9c22775c86ddbeb0f44884",
+                "reference": "692d98d813e4ef314b9c22775c86ddbeb0f44884",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9"
+                "php": ">=5.5.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -763,7 +763,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-23 10:19:46"
+            "time": "2015-11-23 10:41:47"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1263,20 +1263,20 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v2.8.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "e6f3855005f2bfad7d7e72431d374a6478893fe3"
+                "reference": "737e07704cca83f9dd0af926d45ce27eedc25657"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e6f3855005f2bfad7d7e72431d374a6478893fe3",
-                "reference": "e6f3855005f2bfad7d7e72431d374a6478893fe3",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/737e07704cca83f9dd0af926d45ce27eedc25657",
+                "reference": "737e07704cca83f9dd0af926d45ce27eedc25657",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.9",
+                "php": ">=5.5.9",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "require-dev": {
@@ -1288,7 +1288,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -1322,7 +1322,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2015-11-18 13:45:00"
+            "time": "2015-11-18 13:48:51"
         }
     ],
     "aliases": [],
