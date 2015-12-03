@@ -2,7 +2,7 @@
 <div class="clientes form large-9 medium-8 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>
-        <legend><?= __('Add Cliente') ?></legend>
+        <legend><?= __('Cadastrar Cliente') ?></legend>
         <?php
         echo $this->Form->input('nome');
         echo $this->Form->input('cep', ['class' => 'cep']);
@@ -23,6 +23,6 @@
         echo $this->Form->input('cpf', ['class' => 'cpf']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Gravar')) ?>
     <?= $this->Form->end() ?>
 </div>

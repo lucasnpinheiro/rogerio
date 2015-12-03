@@ -2,7 +2,7 @@
 <div class="paramBoletos form large-9 medium-8 columns content">
     <?= $this->Form->create($paramBoleto) ?>
     <fieldset>
-        <legend><?= __('Edit Param Boleto') ?></legend>
+        <legend><?= __('Editar Parâmetros de Boletos') ?></legend>
         <?php
         echo $this->Form->input('nome');
         echo $this->Form->input('banco');
@@ -21,6 +21,6 @@
         echo $this->Form->input('instrucao');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Gravar')) ?>
     <?= $this->Form->end() ?>
 </div>

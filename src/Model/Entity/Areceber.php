@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
@@ -39,4 +40,18 @@ class Areceber extends Entity
         '*' => true,
         'id' => false,
     ];
+
+    protected function _setStatus($status)
+    {
+        if ($status == 'A')
+        {
+
+    //        if (trim($this->_properties['dt_recebe']))
+    //        {
+    //            return 'B';
+    //        }
+        }
+        return 'B';
+    }
+
 }
