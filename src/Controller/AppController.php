@@ -71,7 +71,9 @@ class AppController extends Controller {
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Search.Prg');
+        if ($this->request->action === 'index') {
+            $this->loadComponent('Search.Prg');
+        }
         $this->loadComponent('Auth', [
             'loginRedirect' => [
                 'controller' => 'Usuarios',
