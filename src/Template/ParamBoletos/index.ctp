@@ -1,6 +1,19 @@
 
 <div class="paramBoletos index large-9 medium-8 columns content">
     <h3><?= __('Param Boletos') ?></h3>
+    <div>
+        <?php
+        echo $this->Form->create(null, [
+            'inline' => true,
+            'label' => false
+        ]);
+        echo $this->Form->input('nome', [ 'label' => false, 'placeholder' => 'Nome']);
+        echo $this->Form->input('banco', [ 'label' => false, 'placeholder' => 'Banco']);
+        echo $this->Form->input('agencia', [ 'label' => false, 'placeholder' => 'Agência']);
+        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->end();
+        ?>
+    </div>
     <table  class="table table-bordered table-condensed table-hover table-striped">
         <thead>
             <tr>

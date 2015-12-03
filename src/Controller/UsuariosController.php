@@ -42,7 +42,11 @@ class UsuariosController extends AppController {
      * @return void
      */
     public function index() {
-        $this->set('usuarios', $this->paginate($this->Usuarios));
+        $query = $this->Usuarios
+                ->find('search', $this->Usuarios->filterParams($this->request->query));
+
+
+        $this->set('usuarios', $this->paginate($query));
         $this->set('_serialize', ['usuarios']);
     }
 

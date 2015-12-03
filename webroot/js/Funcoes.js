@@ -17,10 +17,14 @@ $(document).ready(function () {
     });
 
     $('.cep').change(function () {
+        var obj = this;
         $.ajax({
-            url: 'http://cep.agenciavoxel.com.br/' + $(this).val() + '.json',
+            url: 'http://cep.agenciavoxel.com.br/' + $(obj).val() + '.json',
             dataType: "json",
             async: true,
+            beforeSend: function () {
+                $(obj).closest('div').find('.control-label').append(loadImage());
+            },
             success: function (a) {
                 if (a.result.status == 'OK') {
                     $('#endereco').val(a.result.Cep.logradouro);
@@ -28,9 +32,30 @@ $(document).ready(function () {
                     $('#cidade').val(a.result.Cep.cidade);
                     $('#estado').val(a.result.Cep.uf);
                     $('#numero').focus();
+                } else {
+                    $('#endereco').val('');
+                    $('#bairro').val('');
+                    $('#cidade').val('');
+                    $('#estado').val('');
+                    $(obj).focus();
+                    alert('CEP não localizado.');
                 }
+                $('.loadImg').hide();
+            },
+            error: function () {
+                $('#endereco').val('');
+                $('#bairro').val('');
+                $('#cidade').val('');
+                $('#estado').val('');
+                $(obj).focus();
+                alert('CEP não localizado.');
+                $('.loadImg').hide();
             }
         });
     });
 
 });
+
+function loadImage() {
+    return '<span class="loadImg">&nbsp;&nbsp;&nbsp;<img src="' + url + 'img/carregando.gif" /></span>';
+}

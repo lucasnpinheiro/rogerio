@@ -60,9 +60,9 @@ class MyFormHelper extends BootstrapFormHelper {
             $options['help'] = 'Tipo(s) de separador(es) "' . implode('" ', $config['tokenSeparators']) . '"';
         }
 
-        $this->Html->css('/select2-4.0.0/dist/css/select2.min.css', ['block' => 'css']);
-        $this->Html->script('/select2-4.0.0/dist/js/select2.min.js', ['block' => 'script']);
-        $this->Html->script('/select2-4.0.0/dist/js/i18n/pt-BR.js', ['block' => 'script']);
+        $this->Html->css('/plugins/select2/select2.min.css', ['block' => 'css']);
+        $this->Html->script('/plugins/select2/select2.full.min.js', ['block' => 'script']);
+        $this->Html->script('/plugins/select2/i18n/pt-BR.js', ['block' => 'script']);
         $this->Html->scriptBlock("
             jQuery('document').ready(function(){
                 $('#" . $options['id'] . "').select2(" . json_encode($config) . ");

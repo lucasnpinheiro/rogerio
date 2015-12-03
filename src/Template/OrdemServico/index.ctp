@@ -1,6 +1,18 @@
 
 <div class="ordemServico index large-9 medium-8 columns content">
     <h3><?= __('Ordem Servico') ?></h3>
+    <div>
+        <?php
+        echo $this->Form->create(null, [
+            'inline' => true,
+            'label' => false
+        ]);
+        echo $this->Form->input('id', [ 'label' => false, 'placeholder' => 'Número da Ordem de Serviço']);
+        echo $this->MyForm->data('dt_vencto', [ 'label' => false, 'placeholder' => 'Data de Vencimento']);
+        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->end();
+        ?>
+    </div>
     <table  class="table table-bordered table-condensed table-hover table-striped">
         <thead>
             <tr>

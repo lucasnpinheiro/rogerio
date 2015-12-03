@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef4c9b6753dc961573c92bfc96e1d2af",
-    "content-hash": "d809f8a04eceb451359d16dda8e04398",
+    "hash": "821b0f248a0c4a3b9216d79ddabbea34",
+    "content-hash": "9b37c31b7549c92f505d24f513b523c3",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -285,6 +285,51 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2015-06-10 10:35:13"
+        },
+        {
+            "name": "friendsofcake/search",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/search.git",
+                "reference": "2770d71a610ce4fdb01d548ea5c240ac8721b9ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/search/zipball/2770d71a610ce4fdb01d548ea5c240ac8721b9ca",
+                "reference": "2770d71a610ce4fdb01d548ea5c240ac8721b9ca",
+                "shasum": ""
+            },
+            "require-dev": {
+                "cakephp/cakephp": "~3.0",
+                "friendsofcake/cakephp-test-utilities": "dev-master"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Search\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Winther",
+                    "homepage": "http://cakephp.nu/",
+                    "role": "Author"
+                }
+            ],
+            "description": "CakePHP 3.0 easy search framework",
+            "homepage": "https://github.com/FriendsOfCake/search",
+            "keywords": [
+                "cake3",
+                "cakephp",
+                "cakephp3",
+                "search"
+            ],
+            "time": "2015-11-24 20:14:53"
         },
         {
             "name": "holt59/cakephp3-bootstrap-helpers",

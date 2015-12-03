@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Table;
 
 use App\Model\Entity\Areceber;
@@ -6,6 +7,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Search\Manager;
 
 /**
  * Areceber Model
@@ -13,8 +15,7 @@ use Cake\Validation\Validator;
  * @property \Cake\ORM\Association\BelongsTo $Clientes
  * @property \Cake\ORM\Association\BelongsTo $OsClientes
  */
-class AreceberTable extends Table
-{
+class AreceberTable extends Table {
 
     /**
      * Initialize method
@@ -22,8 +23,7 @@ class AreceberTable extends Table
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config)
-    {
+    public function initialize(array $config) {
         parent::initialize($config);
 
         $this->table('areceber');
@@ -38,6 +38,26 @@ class AreceberTable extends Table
         $this->belongsTo('OsClientes', [
             'foreignKey' => 'os_cliente_id'
         ]);
+
+        $this->addBehavior('Search.Search');
+    }
+
+    public function searchConfiguration() {
+        return $this->searchConfigurationDynamic();
+    }
+
+    private function searchConfigurationDynamic() {
+        $search = new Manager($this);
+        $c = $this->schema()->columns();
+        foreach ($c as $key => $value) {
+            $t = $this->schema()->columnType($value);
+            if ($t != 'string' AND $t != 'text') {
+                $search->value($value, ['field' => $this->aliasField($value)]);
+            } else {
+                $search->like($value, ['before' => true, 'after' => true, 'field' => $this->aliasField($value)]);
+            }
+        }
+        return $search;
     }
 
     /**
@@ -46,45 +66,42 @@ class AreceberTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
-    {
+    public function validationDefault(Validator $validator) {
         $validator
-            ->allowEmpty('nro_docto');
+                ->allowEmpty('nro_docto');
 
         $validator
-           
-            ->allowEmpty('dt_vencto');
+                ->allowEmpty('dt_vencto');
 
         $validator
-            ->add('valor', 'valid', ['rule' => 'money'])
-            ->allowEmpty('valor');
+                ->add('valor', 'valid', ['rule' => 'money'])
+                ->allowEmpty('valor');
 
         $validator
-            ->add('parcela', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('parcela');
+                ->add('parcela', 'valid', ['rule' => 'numeric'])
+                ->allowEmpty('parcela');
 
         $validator
-            ->add('vl_juros', 'valid', ['rule' => 'money'])
-            ->allowEmpty('vl_juros');
+                ->add('vl_juros', 'valid', ['rule' => 'money'])
+                ->allowEmpty('vl_juros');
 
         $validator
-            ->add('vl_multa', 'valid', ['rule' => 'money'])
-            ->allowEmpty('vl_multa');
+                ->add('vl_multa', 'valid', ['rule' => 'money'])
+                ->allowEmpty('vl_multa');
 
         $validator
-            ->allowEmpty('status');
+                ->allowEmpty('status');
 
         $validator
-            
-            ->allowEmpty('dt_recebe');
+                ->allowEmpty('dt_recebe');
 
         $validator
-            ->add('total_recebe', 'valid', ['rule' => 'money'])
-            ->allowEmpty('total_recebe');
+                ->add('total_recebe', 'valid', ['rule' => 'money'])
+                ->allowEmpty('total_recebe');
 
         $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create');
+                ->add('id', 'valid', ['rule' => 'numeric'])
+                ->allowEmpty('id', 'create');
 
         return $validator;
     }
@@ -96,10 +113,10 @@ class AreceberTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules)
-    {
+    public function buildRules(RulesChecker $rules) {
         $rules->add($rules->existsIn(['cliente_id'], 'Clientes'));
         $rules->add($rules->existsIn(['os_cliente_id'], 'OsClientes'));
         return $rules;
     }
+
 }

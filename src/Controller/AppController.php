@@ -71,6 +71,7 @@ class AppController extends Controller {
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Search.Prg');
         $this->loadComponent('Auth', [
             'loginRedirect' => [
                 'controller' => 'Usuarios',
@@ -120,6 +121,19 @@ class AppController extends Controller {
                 in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {
             $this->set('_serialize', true);
+        }
+    }
+
+    protected function convertData($campo) {
+        if (isset($this->request->query[$campo])) {
+            $ex = explode('/', $this->request->query[$campo]);
+            $this->request->query[$campo] = implode('-', array_reverse($ex));
+        }
+    }
+
+    protected function removeMask($campo) {
+        if (isset($this->request->query[$campo])) {
+            $this->request->query[$campo] = trim(str_replace(array('.', '-'), '', $this->request->query[$campo]));
         }
     }
 

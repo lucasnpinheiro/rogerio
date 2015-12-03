@@ -17,7 +17,12 @@ class ClientesController extends AppController {
      * @return void
      */
     public function index() {
-        $this->set('clientes', $this->paginate($this->Clientes));
+        $this->removeMask('cpf');
+        $query = $this->Clientes
+                ->find('search', $this->Clientes->filterParams($this->request->query));
+
+
+        $this->set('clientes', $this->paginate($query));
         $this->set('_serialize', ['clientes']);
     }
 

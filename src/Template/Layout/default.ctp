@@ -22,17 +22,21 @@
         <!-- jvectormap -->
         <?= $this->Html->css('/plugins/jvectormap/jquery-jvectormap-1.2.2.css') ?>
         <!-- Theme style -->
-        <?= $this->Html->css('/dist/css/AdminLTE.min.css') ?>
+        
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        <?= $this->Html->css('/dist/css/skins/_all-skins.min.css') ?>
         <?= $this->fetch('css') ?>
+        <?= $this->Html->css('/dist/css/AdminLTE.min.css') ?>
+        <?= $this->Html->css('/dist/css/skins/_all-skins.min.css') ?>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script>
+            var url = "<?php echo $this->Url->build('/', true) ?>";
+        </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -163,10 +167,9 @@
 
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.1
+                    <b>Versão</b> 01.00.01
                 </div>
-                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-                reserved.
+                <strong>Copyright &copy; 2015-<?php echo date('Y')?> <a href="http://agenciavoxel.com.br">Agência Voxel</a>.</strong> Todos os direitos reservados.
             </footer>
 
         </div>
@@ -175,13 +178,10 @@
         <!-- jQuery 2.1.4 -->
         <?php echo $this->Html->script('/plugins/jQuery/jQuery-2.1.4.min.js') ?>
         <?php echo $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
-        <?php echo $this->Html->script('/plugins/fastclick/fastclick.js') ?>
+        <?php echo $this->Html->script('/js/jquery.mask.min.js') ?>
+        <?php echo $this->Html->script('/js/jquery.maskMoney.min.js') ?>
         <?php echo $this->Html->script('/dist/js/app.min.js') ?>
-        <?php echo $this->Html->script('/plugins/sparkline/jquery.sparkline.min.js') ?>
-        <?php echo $this->Html->script('/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') ?>
-        <?php echo $this->Html->script('/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') ?>
-        <?php echo $this->Html->script('/plugins/slimScroll/jquery.slimscroll.min.js') ?>
-        <?php echo $this->Html->script('/plugins/chartjs/Chart.min.js') ?>
+        <?php echo $this->Html->script('/js/Funcoes.js') ?>
         <?php echo $this->fetch('script') ?>
     </body>
 </html>

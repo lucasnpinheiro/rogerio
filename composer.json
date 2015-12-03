@@ -11,7 +11,8 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "holt59/cakephp3-bootstrap-helpers": "dev-master",
-        "kriansa/openboleto": "v1.0"
+        "kriansa/openboleto": "v1.0",
+        "friendsofcake/search": "*"
     },
     "require-dev": {
         "psy/psysh": "@stable",

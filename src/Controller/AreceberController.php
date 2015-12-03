@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,20 +9,23 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\AreceberTable $Areceber
  */
-class AreceberController extends AppController
-{
+class AreceberController extends AppController {
 
     /**
      * Index method
      *
      * @return void
      */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Clientes']
-        ];
-        $this->set('areceber', $this->paginate($this->Areceber));
+    public function index() {
+        $this->convertData('dt_vencto');
+        $query = $this->Areceber
+                ->find('search', $this->Areceber->filterParams($this->request->query))
+                ->contain(['Clientes']);
+
+
+        $clientes = $this->Areceber->Clientes->find('list')->select(['id', 'nome'])->order('nome', 'asc');
+        $this->set('clientes', $clientes);
+        $this->set('areceber', $this->paginate($query));
         $this->set('_serialize', ['areceber']);
     }
 
@@ -32,8 +36,7 @@ class AreceberController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $areceber = $this->Areceber->get($id, [
             'contain' => ['Clientes']
         ]);
@@ -46,8 +49,7 @@ class AreceberController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $areceber = $this->Areceber->newEntity();
         if ($this->request->is('post')) {
             $areceber = $this->Areceber->patchEntity($areceber, $this->request->data);
@@ -58,8 +60,8 @@ class AreceberController extends AppController
                 $this->Flash->error(__('The areceber could not be saved. Please, try again.'));
             }
         }
-        $clientes = $this->Areceber->Clientes->find('list')->select(['id', 'nome'])->order('nome','asc');
-       
+        $clientes = $this->Areceber->Clientes->find('list')->select(['id', 'nome'])->order('nome', 'asc');
+
         $this->set(compact('areceber', 'clientes'));
         $this->set('_serialize', ['areceber']);
     }
@@ -71,8 +73,7 @@ class AreceberController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $areceber = $this->Areceber->get($id, [
             'contain' => []
         ]);
@@ -97,8 +98,7 @@ class AreceberController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $areceber = $this->Areceber->get($id);
         if ($this->Areceber->delete($areceber)) {
@@ -108,4 +108,5 @@ class AreceberController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
 }

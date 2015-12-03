@@ -1,13 +1,24 @@
 
 <div class="usuarios index large-9 medium-8 columns content">
     <h3><?= __('Usuarios') ?></h3>
+    <div>
+        <?php
+        echo $this->Form->create(null, [
+            'inline' => true,
+            'label' => false
+        ]);
+        echo $this->Form->input('nome', [ 'label' => false, 'placeholder' => 'Nome']);
+        echo $this->Form->input('Username', [ 'label' => false, 'placeholder' => 'Username']);
+        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->end();
+        ?>
+    </div>
     <table  class="table table-bordered table-condensed table-hover table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('nome') ?></th>
                 <th><?= $this->Paginator->sort('username') ?></th>
-                <th><?= $this->Paginator->sort('senha') ?></th>
                 <th><?= $this->Paginator->sort('created') ?></th>
                 <th><?= $this->Paginator->sort('modified') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -19,7 +30,6 @@
                     <td><?= $this->Number->format($usuario->id) ?></td>
                     <td><?= h($usuario->nome) ?></td>
                     <td><?= h($usuario->username) ?></td>
-                    <td><?= h($usuario->senha) ?></td>
                     <td><?= h($usuario->created) ?></td>
                     <td><?= h($usuario->modified) ?></td>
                     <td class="actions">

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
@@ -26,8 +27,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Areceber[] $areceber
  * @property \App\Model\Entity\OrdemServico[] $ordem_servico
  */
-class Cliente extends Entity
-{
+class Cliente extends Entity {
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -42,4 +42,14 @@ class Cliente extends Entity
         '*' => true,
         'id' => false,
     ];
+
+    protected function _getCpf() {
+        return trim(str_replace(array('.', '-'), '', $this->_properties['cpf']));
+    }
+
+    protected function _setCpf($cpf) {
+        $cpf = trim(str_replace(array('.', '-'), '', $cpf));
+        return $cpf;
+    }
+
 }

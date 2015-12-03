@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,17 +9,20 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\ParamBoletosTable $ParamBoletos
  */
-class ParamBoletosController extends AppController
-{
+class ParamBoletosController extends AppController {
 
     /**
      * Index method
      *
      * @return void
      */
-    public function index()
-    {
-        $this->set('paramBoletos', $this->paginate($this->ParamBoletos));
+    public function index() {
+
+        $query = $this->ParamBoletos
+                ->find('search', $this->ParamBoletos->filterParams($this->request->query));
+
+
+        $this->set('paramBoletos', $this->paginate($query));
         $this->set('_serialize', ['paramBoletos']);
     }
 
@@ -29,8 +33,7 @@ class ParamBoletosController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $paramBoleto = $this->ParamBoletos->get($id, [
             'contain' => []
         ]);
@@ -43,8 +46,7 @@ class ParamBoletosController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $paramBoleto = $this->ParamBoletos->newEntity();
         if ($this->request->is('post')) {
             $paramBoleto = $this->ParamBoletos->patchEntity($paramBoleto, $this->request->data);
@@ -66,8 +68,7 @@ class ParamBoletosController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $paramBoleto = $this->ParamBoletos->get($id, [
             'contain' => []
         ]);
@@ -91,8 +92,7 @@ class ParamBoletosController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $paramBoleto = $this->ParamBoletos->get($id);
         if ($this->ParamBoletos->delete($paramBoleto)) {
@@ -102,4 +102,5 @@ class ParamBoletosController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
 }

@@ -1,12 +1,25 @@
 
 <div class="clientes index large-9 medium-8 columns content">
     <h3><?= __('Clientes') ?></h3>
+    <div>
+        <?php
+        echo $this->Form->create(null, [
+            'inline' => true,
+            'label' => false
+        ]);
+        echo $this->Form->input('nome', [ 'label' => false, 'placeholder' => 'Nome']);
+        echo $this->Form->input('mae', [ 'label' => false, 'placeholder' => 'Mãe']);
+        echo $this->Form->input('cpf', ['class' => 'cpf', 'label' => false, 'placeholder' => 'CPF']);
+        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->end();
+        ?>
+    </div>
     <table  class="table table-bordered table-condensed table-hover table-striped">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('nome') ?></th>
-                <th><?= $this->Paginator->sort('endereco','Endereço') ?></th>
+                <th><?= $this->Paginator->sort('endereco', 'Endereço') ?></th>
                 <th><?= $this->Paginator->sort('numero', 'Número') ?></th>
                 <th><?= $this->Paginator->sort('complemento') ?></th>
                 <th><?= $this->Paginator->sort('bairro') ?></th>
@@ -29,7 +42,6 @@
                         echo $this->Form->dropdownButton('Ações', [
                             $this->Html->link(__('View'), ['action' => 'view', $cliente->id]),
                             $this->Html->link(__('Edit'), ['action' => 'edit', $cliente->id]),
-                            
                             'divider',
                             $this->Form->postLink(__('Delete'), ['action' => 'delete', $cliente->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)])
                         ]);

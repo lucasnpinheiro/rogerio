@@ -18,7 +18,7 @@
         echo $this->Form->input('estado_civil');
         echo $this->Form->input('nacionalidade');
         echo $this->Form->input('profissao');
-        echo $this->MyForm->data('dt_nascimento', ['value' => $cliente->dt_nascimento->format('d/m/Y'), 'empty' => true]);
+        echo $this->MyForm->data('dt_nascimento', ['value' => (!empty($cliente->dt_nascimento) ? $cliente->dt_nascimento->format('d/m/Y') : ''), 'empty' => true]);
         echo $this->Form->input('mae');
         echo $this->Form->input('ctps');
         echo $this->Form->input('nit');

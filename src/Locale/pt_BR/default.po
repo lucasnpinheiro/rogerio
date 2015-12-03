@@ -9,3 +9,6 @@ msgstr "Novo"
 
 msgid "Edit"
 msgstr "Alterar"
+
+msgid "Submit"
+msgstr "Salvar"

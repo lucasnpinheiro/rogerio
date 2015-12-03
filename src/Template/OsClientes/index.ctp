@@ -1,6 +1,19 @@
 
 <div class="osClientes index large-9 medium-8 columns content">
     <h3><?= __('Os Clientes') ?></h3>
+    <div>
+        <?php
+        echo $this->Form->create(null, [
+            'inline' => true,
+            'label' => false
+        ]);
+        echo $this->Form->input('nro_docto', [ 'label' => false, 'placeholder' => 'Número do Documento']);
+        echo $this->MyForm->data('dt_vencto', [ 'label' => false, 'placeholder' => 'Data de Vencimento']);
+        echo $this->MyForm->select2('cliente_id', ['options' => $clientes, 'label' => false, 'empty' => 'Cliente']);
+        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->end();
+        ?>
+    </div>
     <table  class="table table-bordered table-condensed table-hover table-striped">
         <thead>
             <tr>

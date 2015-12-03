@@ -19,11 +19,14 @@ class OrdemServicoController extends AppController {
      * @return void
      */
     public function index() {
-        $this->paginate = [
-            'contain' => ['OsClientes'],
-            'order' => ['id' => 'desc']
-        ];
-        $this->set('ordemServicos', $this->paginate($this->OrdemServico));
+        $this->convertData('dt_vencto');
+        $query = $this->OrdemServico
+                ->find('search', $this->OrdemServico->filterParams($this->request->query))
+                ->contain(['OsClientes'])
+                ->orderDesc('id');
+
+
+        $this->set('ordemServicos', $this->paginate($query));
         $this->set('_serialize', ['ordemServicos']);
     }
 

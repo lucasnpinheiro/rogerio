@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,17 +9,19 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\ContratosTable $Contratos
  */
-class ContratosController extends AppController
-{
+class ContratosController extends AppController {
 
     /**
      * Index method
      *
      * @return void
      */
-    public function index()
-    {
-        $this->set('contratos', $this->paginate($this->Contratos));
+    public function index() {
+        $query = $this->Contratos
+                ->find('search', $this->Contratos->filterParams($this->request->query));
+
+
+        $this->set('contratos', $this->paginate($query));
         $this->set('_serialize', ['contratos']);
     }
 
@@ -29,8 +32,7 @@ class ContratosController extends AppController
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $contrato = $this->Contratos->get($id, [
             'contain' => []
         ]);
@@ -43,8 +45,7 @@ class ContratosController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $contrato = $this->Contratos->newEntity();
         if ($this->request->is('post')) {
             $contrato = $this->Contratos->patchEntity($contrato, $this->request->data);
@@ -66,8 +67,7 @@ class ContratosController extends AppController
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $contrato = $this->Contratos->get($id, [
             'contain' => []
         ]);
@@ -91,8 +91,7 @@ class ContratosController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $contrato = $this->Contratos->get($id);
         if ($this->Contratos->delete($contrato)) {
@@ -102,12 +101,13 @@ class ContratosController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
-    public function modelo($id = null)
-    {
+
+    public function modelo($id = null) {
         $contrato = $this->Contratos->get($id, [
             'contain' => []
         ]);
         $this->set('contrato', $contrato);
         $this->set('_serialize', ['contrato']);
     }
+
 }
