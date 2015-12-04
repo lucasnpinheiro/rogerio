@@ -135,7 +135,7 @@
                             <?php
                             switch ($this->request->params['action']) {
                                 case 'add':
-                                    echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info']);
+                                    echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info', 'icon' => 'list']);
                                     break;
                                 case 'edit':
                                     echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info']);
