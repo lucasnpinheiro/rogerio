@@ -11,7 +11,6 @@
 		monthsShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
 		today: "Idag",
 		format: "yyyy-mm-dd",
-		weekStart: 1,
-		clear: "Rensa"
+		weekStart: 1
 	};
 }(jQuery));

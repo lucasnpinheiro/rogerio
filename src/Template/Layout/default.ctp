@@ -21,7 +21,7 @@
         <?= $this->Html->css('/css/ionicons.min.css') ?>
         <!-- jvectormap -->
         <?= $this->Html->css('/plugins/jvectormap/jquery-jvectormap-1.2.2.css') ?>
-        <?php echo $this->Html->css('/plugins/bootstrap-datepicker/bootstrap-datepicker.css') ?>
+        <?php echo $this->Html->css('/plugins/bootstrap-datepicker/datepicker3.css') ?>
         <!-- Theme style -->
 
         <!-- AdminLTE Skins. Choose a skin from the css/skins

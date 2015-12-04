@@ -9,7 +9,7 @@
         echo $this->Form->input('parcela');
         echo $this->Form->moeda('vl_juros');
         echo $this->Form->moeda('vl multa');
-        echo $this->Form->input('status');
+        echo $this->Form->receber('status');
         echo $this->Form->data('dt_recebe', ['empty' => true, 'value' => date('d/m/Y')]);
         echo $this->Form->moeda('total_recebe');
         ?>

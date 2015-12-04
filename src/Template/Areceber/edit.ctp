@@ -11,7 +11,7 @@
         echo $this->Form->numero('parcela');
         echo $this->Form->juros('vl_juros');
         echo $this->Form->moeda('vl multa');
-        echo $this->Form->input('status');
+        echo $this->Form->receber('status');
         echo $this->Form->data('dt_recebe', ['value' => is_null($areceber->dt_recebe) ? '' : $areceber->dt_recebe->format('d/m/Y'), 'empty' => true]);
         echo $this->Form->moeda('total_recebe');
         ?>

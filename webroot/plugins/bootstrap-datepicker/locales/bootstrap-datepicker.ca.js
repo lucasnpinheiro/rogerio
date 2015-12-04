@@ -9,9 +9,6 @@
 		daysMin: ["dg", "dl", "dt", "dc", "dj", "dv", "ds", "dg"],
 		months: ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"],
 		monthsShort: ["Gen", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Des"],
-		today: "Avui",
-		clear: "Esborrar",
-		weekStart: 1,
-		format: "dd/mm/yyyy"
+		today: "Avui"
 	};
 }(jQuery));

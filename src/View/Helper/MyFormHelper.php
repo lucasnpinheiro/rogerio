@@ -243,13 +243,14 @@ class MyFormHelper extends BootstrapFormHelper {
             'wrap' => 'date',
             'append' => '<i class="fa fa-calendar fa-lg"></i>',
         ];
-        if (!empty($this->request->data($fieldName))) {
-            $default['value'] = $this->request->data($fieldName);
+        $val = $this->context();
+        if (!empty($val->val($fieldName))) {
+            $default['value'] = $val->val($fieldName);
         }
 
         $options = \Cake\Utility\Hash::merge($default, $options);
         if (trim($options['value']) != '') {
-            $options['value'] = $this->Html->data($options['value']);
+            //$options['value'] = $this->Html->data($options['value']);
         }
         $options['class'] .= ' ' . $default['class'];
         $options['div']['class'] .= ' ' . $default['div']['class'];
@@ -381,6 +382,19 @@ class MyFormHelper extends BootstrapFormHelper {
             'options' => [
                 0 => __('Não'),
                 1 => __('Sim'),
+            ],
+            'empty' => __('Selecionar uma opção')
+        ];
+        return $this->input($fieldName, $options);
+    }
+
+    public function receber($fieldName, array $options = array()) {
+        $options += [
+            'type' => 'select',
+            'options' => [
+                'A' => __('Aberto'),
+                'B' => __('Fechado'),
+                'C' => __('Cancelado'),
             ],
             'empty' => __('Selecionar uma opção')
         ];

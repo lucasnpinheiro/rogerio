@@ -11,7 +11,6 @@
 		monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
 		today: "今日",
 		format: "yyyy年mm月dd日",
-		weekStart: 1,
-		clear: "清空"
+		weekStart: 1
 	};
 }(jQuery));
