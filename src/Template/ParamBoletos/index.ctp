@@ -10,7 +10,7 @@
         echo $this->Form->input('nome', [ 'label' => false, 'placeholder' => 'Nome']);
         echo $this->Form->input('banco', [ 'label' => false, 'placeholder' => 'Banco']);
         echo $this->Form->input('agencia', [ 'label' => false, 'placeholder' => 'Agência']);
-        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->button('Consultar', ['type' => 'submit', 'icon' => 'search']);
         echo $this->Form->end();
         ?>
     </div>
@@ -40,11 +40,11 @@
                     <td class="actions">
                         <?php
                         echo $this->Form->dropdownButton('Ações', [
-                            $this->Html->link(__('View'), ['action' => 'view', $paramBoleto->id]),
-                            $this->Html->link(__('Edit'), ['action' => 'edit', $paramBoleto->id]),
+                            $this->Html->link(__('View'), ['action' => 'view', $paramBoleto->id], ['class' => 'text-center', 'icon' => false]),
+                            $this->Html->link(__('Edit'), ['action' => 'edit', $paramBoleto->id], ['class' => 'text-center', 'icon' => false]),
                             'divider',
-                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $paramBoleto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $paramBoleto->id)])
-                        ]);
+                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $paramBoleto->id], ['class' => 'text-center', 'icon' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $paramBoleto->id)])
+                                ], ['icon' => false]);
                         ?>
                     </td>
                 </tr>

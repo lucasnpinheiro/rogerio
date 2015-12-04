@@ -8,8 +8,8 @@
             'label' => false
         ]);
         echo $this->Form->input('id', [ 'label' => false, 'placeholder' => 'Número da Ordem de Serviço']);
-        echo $this->MyForm->data('dt_vencto', [ 'label' => false, 'placeholder' => 'Data de Vencimento']);
-        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->data('dt_vencto', [ 'label' => false, 'placeholder' => 'Data de Vencimento']);
+        echo $this->Form->button('Consultar', ['type' => 'submit', 'icon' => 'search']);
         echo $this->Form->end();
         ?>
     </div>
@@ -38,10 +38,10 @@
                     <td class="actions">
                         <?php
                         echo $this->Form->dropdownButton('Ações', [
-                            $this->Html->link(__('Boletos'), ['action' => 'imprimir_boletos', $ordemServico->id]),
+                            $this->Html->link(__('Boletos'), ['action' => 'imprimir_boletos', $ordemServico->id], ['class' => 'text-center', 'icon' => false]),
                             'divider',
-                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $ordemServico->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ordemServico->id)])
-                        ]);
+                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $ordemServico->id], ['class' => 'text-center', 'icon' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $ordemServico->id)])
+                                ], ['icon' => false]);
                         ?>
                     </td>
                 </tr>

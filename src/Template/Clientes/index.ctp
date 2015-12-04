@@ -10,7 +10,7 @@
         echo $this->Form->input('nome', [ 'label' => false, 'placeholder' => 'Nome']);
         echo $this->Form->input('mae', [ 'label' => false, 'placeholder' => 'Mãe']);
         echo $this->Form->input('cpf', ['class' => 'cpf', 'label' => false, 'placeholder' => 'CPF']);
-        echo $this->Form->button('Consultar', ['type' => 'submit']);
+        echo $this->Form->button('Consultar', ['type' => 'submit', 'icon' => 'search']);
         echo $this->Form->end();
         ?>
     </div>
@@ -40,11 +40,11 @@
                     <td class="actions">
                         <?php
                         echo $this->Form->dropdownButton('Ações', [
-                            $this->Html->link(__('View'), ['action' => 'view', $cliente->id]),
-                            $this->Html->link(__('Edit'), ['action' => 'edit', $cliente->id]),
+                            $this->Html->link(__('View'), ['action' => 'view', $cliente->id], ['class' => 'text-center', 'icon' => false]),
+                            $this->Html->link(__('Edit'), ['action' => 'edit', $cliente->id], ['class' => 'text-center', 'icon' => false]),
                             'divider',
-                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $cliente->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)])
-                        ]);
+                            $this->Form->postLink(__('Delete'), ['action' => 'delete', $cliente->id], ['class' => 'text-center', 'icon' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)])
+                                ], ['icon' => false]);
                         ?>
                     </td>
                 </tr>

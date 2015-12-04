@@ -3,6 +3,6 @@
 </a>
 <ul class="treeview-menu">
     <li>
-        <?= $this->Html->link('Ordem de Servico', ['controller' => 'OrdemServico', 'action' => 'add']) ?>
+        <?= $this->Html->link('Ordem de Servico', ['controller' => 'OrdemServico', 'action' => 'add'], ['icon' => false]) ?>
     </li>
 </ul>

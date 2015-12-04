@@ -3,9 +3,9 @@
 </a>
 <ul class="treeview-menu">
    <li>
-        <?= $this->Html->link('Contas a Receber', ['controller' => 'Areceber', 'action' => 'index']) ?>
+        <?= $this->Html->link('Contas a Receber', ['controller' => 'Areceber', 'action' => 'index'], ['icon' => false]) ?>
     </li>
     <li>
-        <?= $this->Html->link('Adicionar Contas a Receber', ['controller' => 'Areceber', 'action' => 'add']) ?>
+        <?= $this->Html->link('Adicionar Contas a Receber', ['controller' => 'Areceber', 'action' => 'add'], ['icon' => false]) ?>
     </li>
 </ul>

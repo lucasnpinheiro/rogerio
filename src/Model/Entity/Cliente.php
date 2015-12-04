@@ -44,7 +44,10 @@ class Cliente extends Entity {
     ];
 
     protected function _getCpf() {
-        return trim(str_replace(array('.', '-'), '', $this->_properties['cpf']));
+        if (isset($this->_properties['cpf'])) {
+            return trim(str_replace(array('.', '-'), '', $this->_properties['cpf']));
+        }
+        return '';
     }
 
     protected function _setCpf($cpf) {

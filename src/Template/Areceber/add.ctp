@@ -3,15 +3,15 @@
     <fieldset>
         <legend><?= __('Adicionar Contas a Receber') ?></legend>
         <?php
-        echo $this->MyForm->data('dt_vencto', ['label' => 'Data Vencimento', 'empty' => true]);
+        echo $this->Form->data('dt_vencto', ['label' => 'Data Vencimento', 'empty' => true]);
         echo $this->Form->input('cliente_id', ['options' => $clientes, 'empty' => true]);
-        echo $this->MyForm->moeda('valor');
+        echo $this->Form->moeda('valor');
         echo $this->Form->input('parcela');
-        echo $this->MyForm->moeda('vl_juros');
-        echo $this->MyForm->moeda('vl multa');
+        echo $this->Form->moeda('vl_juros');
+        echo $this->Form->moeda('vl multa');
         echo $this->Form->input('status');
-        echo $this->MyForm->data('dt_recebe', ['empty' => true, 'value' => date('d/m/Y')]);
-        echo $this->MyForm->moeda('total_recebe');
+        echo $this->Form->data('dt_recebe', ['empty' => true, 'value' => date('d/m/Y')]);
+        echo $this->Form->moeda('total_recebe');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

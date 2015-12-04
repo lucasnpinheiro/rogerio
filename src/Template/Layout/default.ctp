@@ -22,7 +22,7 @@
         <!-- jvectormap -->
         <?= $this->Html->css('/plugins/jvectormap/jquery-jvectormap-1.2.2.css') ?>
         <!-- Theme style -->
-        
+
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <?= $this->fetch('css') ?>
@@ -100,7 +100,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li>
-                            <?= $this->Html->link('<i class="fa fa-home"></i>  <span>Inicial</span>', '/', ['escape' => false]) ?>
+                            <?= $this->Html->link('<i class="fa fa-home"></i>  <span>Inicial</span>', '/', ['escape' => false, 'icon' => false]) ?>
                         </li>
                         <li class="treeview">
                             <?php echo $this->element('Cadastros'); ?>
@@ -169,7 +169,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Versão</b> 01.00.01
                 </div>
-                <strong>Copyright &copy; 2015-<?php echo date('Y')?> <a href="http://agenciavoxel.com.br">Agência Voxel</a>.</strong> Todos os direitos reservados.
+                <strong>Copyright &copy; 2015-<?php echo date('Y') ?> <a href="http://agenciavoxel.com.br">Agência Voxel</a>.</strong> Todos os direitos reservados.
             </footer>
 
         </div>
@@ -181,6 +181,8 @@
         <?php echo $this->Html->script('/js/jquery.mask.min.js') ?>
         <?php echo $this->Html->script('/js/jquery.maskMoney.min.js') ?>
         <?php echo $this->Html->script('/dist/js/app.min.js') ?>
+        <?php echo $this->Html->script('/plugins/bootstrap-datepicker/bootstrap-datepicker.js') ?>
+        <?php echo $this->Html->script('/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js') ?>
         <?php echo $this->Html->script('/js/Funcoes.js') ?>
         <?php echo $this->fetch('script') ?>
     </body>

@@ -43,18 +43,18 @@ class AppController extends Controller {
 
     public $helpers = [
         'Html' => [
-            'className' => 'Bootstrap.BootstrapHtml'
+            'className' => 'MyHtml'
         ],
         'Form' => [
-            'className' => 'Bootstrap.BootstrapForm'
+            'className' => 'MyForm'
         ],
         'Paginator' => [
-            'className' => 'Bootstrap.BootstrapPaginator'
+            'className' => 'MyPaginator'
         ],
         'Modal' => [
-            'className' => 'Bootstrap.BootstrapModal'
+            'className' => 'MyModal'
         ],
-        'MyForm'
+        //'MyForm'
     ];
 
     /**

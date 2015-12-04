@@ -24,8 +24,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property \App\Model\Entity\OsCliente $oscliente
  */
-class Areceber extends Entity
-{
+class Areceber extends Entity {
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -40,18 +39,5 @@ class Areceber extends Entity
         '*' => true,
         'id' => false,
     ];
-
-    protected function _setStatus($status)
-    {
-        if ($status == 'A')
-        {
-
-    //        if (trim($this->_properties['dt_recebe']))
-    //        {
-    //            return 'B';
-    //        }
-        }
-        return 'B';
-    }
 
 }
