@@ -8,7 +8,7 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <title>
-            <?= $this->fetch('title') ?>
+            <?= __($this->fetch('title')) ?>
         </title>
         <?= $this->Html->meta('icon') ?>
         <?= $this->fetch('meta') ?>
@@ -122,15 +122,17 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <?= $this->fetch('title') ?>
+                        <?= __($this->fetch('title')) ?>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <?php echo $this->Html->link('<i class="fa fa-dashboard"></i>' . __($this->request->params['controller']), '/', ['escape' => false]) ?>
-                        </li>
-                        <li class="active"><?php echo __(ucwords($this->request->params['action'])); ?></li>
-                    </ol>
-                    <div class="col-lg-12 text-right">
+                    <div class="col-xs-12 col-md-6 text-left">
+                        <ol class="breadcrumb">
+                            <li>
+                                <?php echo $this->Html->link('<i class="fa fa-dashboard"></i>' . __($this->request->params['controller']), '/', ['escape' => false]) ?>
+                            </li>
+                            <li class="active"><?php echo __(ucwords($this->request->params['action'])); ?></li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-12 col-md-6 text-right">
                         <div class="btn-group" role="group" aria-label="">
                             <?php
                             switch ($this->request->params['action']) {

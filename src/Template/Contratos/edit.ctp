@@ -4,8 +4,8 @@
     <fieldset>
         <legend><?= __('Editar Contratos') ?></legend>
         <?php
-            echo $this->Form->input('nome');
-            echo $this->Form->input('modelo');
+        echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-12']]);
+        echo $this->Form->input('modelo', ['div' => ['class' => 'col-xs-12 col-md-12']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gravar')) ?>

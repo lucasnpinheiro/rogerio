@@ -4,9 +4,9 @@
     <fieldset>
         <legend><?= __('Add Contrato') ?></legend>
         <?php
-            echo $this->Form->input('servico_id');
-            echo $this->Form->input('valor');
-            echo $this->Form->input('');
+        echo $this->Form->input('servico_id');
+        echo $this->Form->input('valor');
+        echo $this->Form->input('');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

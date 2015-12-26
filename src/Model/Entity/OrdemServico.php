@@ -31,13 +31,14 @@ class OrdemServico extends Entity {
     protected $_accessible = [
         '*' => true,
         'clientes' => true,
-        'id' => false,
     ];
     protected $_virtual = ['clientes'];
 
     protected function _getClientes() {
-        $find = \Cake\ORM\TableRegistry::get('Clientes');
-        return $find->find('all')->where(['id' => $this->cliente_id])->first()->toArray();
+        if (!empty($this->cliente_id)) {
+            $find = \Cake\ORM\TableRegistry::get('Clientes');
+            return $find->find('all')->where(['id' => $this->cliente_id])->first()->toArray();
+        }
     }
 
 }

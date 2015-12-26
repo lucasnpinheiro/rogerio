@@ -4,9 +4,9 @@
     <fieldset>
         <legend><?= __('Cadastrar Usuarios') ?></legend>
         <?php
-            echo $this->Form->input('nome');
-            echo $this->Form->input('username');
-            echo $this->Form->input('senha');
+            echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-4']]);
+            echo $this->Form->input('username', ['div' => ['class' => 'col-xs-12 col-md-4']]);
+            echo $this->Form->input('senha', ['div' => ['class' => 'col-xs-12 col-md-4']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gravar')) ?>

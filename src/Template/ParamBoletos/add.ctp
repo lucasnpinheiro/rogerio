@@ -4,21 +4,21 @@
     <fieldset>
         <legend><?= __('Cadastrar Parâmetros de Boletos') ?></legend>
         <?php
-        echo $this->Form->input('nome');
-        echo $this->Form->input('banco');
-        echo $this->Form->input('agencia');
-        echo $this->Form->input('ccorrente');
-        echo $this->Form->input('carteira');
-        echo $this->Form->input('convenio');
-        echo $this->Form->input('cedente');
-        echo $this->Form->input('cpf', ['class' => 'cpf']);
-        echo $this->Form->input('nro_seq');
-        echo $this->Form->input('cep', ['class' => 'cep']);
-        echo $this->Form->input('endereco');
-        echo $this->Form->input('numero');
-        echo $this->Form->input('cidade');
-        echo $this->Form->input('estado');
-        echo $this->Form->input('instrucao');
+        echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('banco', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('agencia', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('ccorrente', ['label' => 'Conta Corrente', 'div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('carteira', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('convenio', ['label' => 'Convênio', 'div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('cedente', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->cpf('cpf', ['label' => 'CPF', 'class' => 'cpf', 'div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->numero('nro_seq', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->cep('cep', ['label' => 'CEP', 'class' => 'cep', 'div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('endereco', ['label' => 'Endereço', 'div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->numero('numero', ['label' => 'Número', 'div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('cidade', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('estado', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('instrucao', ['label' => 'Instrução', 'div' => ['class' => 'col-xs-12 col-md-12']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gravar')) ?>

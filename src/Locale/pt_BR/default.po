@@ -12,3 +12,9 @@ msgstr "Alterar"
 
 msgid "Submit"
 msgstr "Salvar"
+
+msgid "ParamBoletos"
+msgstr "Parametros de Boletos"
+
+msgid "Areceber"
+msgstr "Contas a Receber"

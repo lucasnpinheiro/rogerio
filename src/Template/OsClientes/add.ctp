@@ -4,11 +4,11 @@
     <fieldset>
         <legend><?= __('Referenciar O.S. aos Clientes') ?></legend>
         <?php
-            echo $this->Form->input('ordem_servido_id');
-            echo $this->Form->input('clientes id');
-            echo $this->Form->input('valor');
-            echo $this->Form->input('parcela');
-            echo $this->Form->input('dt_vencto', ['empty' => true]);
+        echo $this->Form->input('ordem_servido_id', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('clientes id', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('valor', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('parcela', ['div' => ['class' => 'col-xs-12 col-md-3']]);
+        echo $this->Form->input('dt_vencto', ['empty' => true, 'div' => ['class' => 'col-xs-12 col-md-3']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Gravar')) ?>
