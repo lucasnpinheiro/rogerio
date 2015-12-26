@@ -2,7 +2,7 @@
 <div class="paramBoletos form large-9 medium-8 columns content">
     <?= $this->Form->create($paramBoleto) ?>
     <fieldset>
-        <legend><?= __('Cadastrar Parâmetros de Boletos') ?></legend>
+        <legend><?= __('Add') ?></legend>
         <?php
         echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-3']]);
         echo $this->Form->input('banco', ['div' => ['class' => 'col-xs-12 col-md-3']]);

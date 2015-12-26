@@ -4,7 +4,7 @@
     $this->Form->create($cliente);
     ?>
     <fieldset>
-        <legend><?= __('Edit Cliente') ?></legend>
+        <legend><?= __('Edit') ?></legend>
         <?php
         echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-12']]);
         echo $this->Form->cep('cep', ['class' => 'cep', 'div' => ['class' => 'col-xs-12 col-md-3']]);

@@ -1,6 +1,6 @@
 
 <div class="paramBoletos index large-9 medium-8 columns content">
-    <h3><?= __('Param Boletos') ?></h3>
+    <h3><?= __('List') ?></h3>
     <div>
         <?php
         echo $this->Form->create(null, [

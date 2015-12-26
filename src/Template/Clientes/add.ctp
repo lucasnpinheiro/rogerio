@@ -2,7 +2,7 @@
 <div class="clientes form large-9 medium-8 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>
-        <legend><?= __('Cadastrar Cliente') ?></legend>
+        <legend><?= __('Add') ?></legend>
         <?php
         echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-12']]);
         echo $this->Form->cep('cep', ['class' => 'cep', 'div' => ['class' => 'col-xs-12 col-md-3']]);

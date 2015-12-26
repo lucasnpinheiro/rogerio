@@ -80,7 +80,10 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                            <?= $this->Html->link('Perfil', ['controller' => 'Usuarios', 'action' => 'edit', $this->request->session()->read('Auth.User.id')], ['class' => 'btn btn-default btn-flat']) ?>
+                                        </div>
+                                        <div class="pull-center">
+                                            <?= $this->Html->link('Backup', ['controller' => 'Usuarios', 'action' => 'backup'], ['class' => 'btn btn-default btn-flat']) ?>
                                         </div>
                                         <div class="pull-right">
                                             <?= $this->Html->link('Sair', ['controller' => 'Usuarios', 'action' => 'logout'], ['class' => 'btn btn-default btn-flat']) ?>

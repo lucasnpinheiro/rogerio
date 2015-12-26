@@ -1,6 +1,6 @@
 
 <div class="contratos index large-9 medium-8 columns content">
-    <h3><?= __('Contratos') ?></h3>
+    <h3><?= __('List') ?></h3>
     <div>
         <?php
         echo $this->Form->create(null, [

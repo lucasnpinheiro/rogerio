@@ -2,7 +2,7 @@
 <div class="osClientes form large-9 medium-8 columns content">
     <?= $this->Form->create($osCliente) ?>
     <fieldset>
-        <legend><?= __('Editar O.S. aos Clientes') ?></legend>
+        <legend><?= __('Edit') ?></legend>
         <?php
         echo $this->Form->input('ordem_servido_id', ['div' => ['class' => 'col-xs-12 col-md-3']]);
         echo $this->Form->input('clientes id', ['div' => ['class' => 'col-xs-12 col-md-3']]);

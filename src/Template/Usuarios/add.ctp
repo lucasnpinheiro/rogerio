@@ -2,7 +2,7 @@
 <div class="usuarios form large-9 medium-8 columns content">
     <?= $this->Form->create($usuario) ?>
     <fieldset>
-        <legend><?= __('Cadastrar Usuarios') ?></legend>
+        <legend><?= __('Add') ?></legend>
         <?php
             echo $this->Form->input('nome', ['div' => ['class' => 'col-xs-12 col-md-4']]);
             echo $this->Form->input('username', ['div' => ['class' => 'col-xs-12 col-md-4']]);

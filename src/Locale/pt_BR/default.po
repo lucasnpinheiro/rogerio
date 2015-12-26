@@ -1,11 +1,14 @@
 msgid "Index"
-msgstr "Lista"
+msgstr "Consultar"
 
 msgid "View"
 msgstr "Detalhes"
 
+msgid "List"
+msgstr "Listar"
+
 msgid "Add"
-msgstr "Novo"
+msgstr "Cadastrar"
 
 msgid "Edit"
 msgstr "Alterar"

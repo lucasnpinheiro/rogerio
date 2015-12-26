@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Usuarios Controller
@@ -125,6 +126,19 @@ class UsuariosController extends AppController {
             $this->Flash->error(__('The usuario could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function backup() {
+        $c = ConnectionManager::get('default');
+        $db = $c->config();
+        $name = $db['database'] . '_' . date('Y-m-d_H-i-s') . '.sql';
+        $file = WWW_ROOT . 'backup' . DS . $name;
+        $str = 'mysqldump -u ' . $db['username'] . ' -p' . $db['password'] . ' -x --hex-blob --insert-ignore --complete-insert -e -B ' . $db['database'] . ' > ' . $file;
+        exec($str);
+        $this->autoRender = false;
+        $this->response->file(
+                $file, ['download' => true, 'name' => $name]
+        );
     }
 
 }
