@@ -107,7 +107,9 @@ class MyFormHelper extends BootstrapFormHelper {
     }
 
     public function postLink($title, $url = null, array $options = array()) {
-        $options['class'] = ' btn btn-xs ';
+        if (!isset($options['class'])) {
+            $options['class'] = ' btn btn-xs ';
+        }
         $options['escape'] = false;
         if (!isset($options['icon'])) {
             $options['icon'] = 'trash-o';

@@ -145,7 +145,13 @@
                                 case 'edit':
                                     echo $this->Html->link(__('Index'), ['action' => 'index'], ['class' => 'btn btn-info', 'icon' => 'list']);
                                     echo $this->Html->link(__('Add'), ['action' => 'add'], ['class' => 'btn btn-success', 'icon' => 'plus-circle']);
-                                    echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $this->request->params['pass'][0]], ['icon' => 'minus-circle', 'class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $this->request->params['pass'][0])]);
+                                    if ($this->request->params['controller'] == 'Usuarios') {
+                                        if ($this->request->session()->read('Auth.User.id') != $this->request->params['pass'][0]) {
+                                            echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $this->request->params['pass'][0]], ['icon' => 'minus-circle', 'class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $this->request->params['pass'][0])]);
+                                        }
+                                    } else {
+                                        echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $this->request->params['pass'][0]], ['icon' => 'minus-circle', 'class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $this->request->params['pass'][0])]);
+                                    }
 
                                     break;
 

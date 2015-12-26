@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Datasource\ConnectionManager;
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
 
 /**
  * Usuarios Controller
@@ -131,11 +133,25 @@ class UsuariosController extends AppController {
     public function backup() {
         $c = ConnectionManager::get('default');
         $db = $c->config();
-        $name = $db['database'] . '_' . date('Y-m-d_H-i-s') . '.sql';
-        $file = WWW_ROOT . 'backup' . DS . $name;
+        $name = $db['database'] . '_' . time() . '.sql';
+        $diretorio = WWW_ROOT . 'backup' . DS;
+        $file = $diretorio . $name;
         $str = 'mysqldump -u ' . $db['username'] . ' -p' . $db['password'] . ' -x --hex-blob --insert-ignore --complete-insert -e -B ' . $db['database'] . ' > ' . $file;
         exec($str);
         $this->autoRender = false;
+
+        $dir = new Folder($diretorio);
+        $files = $dir->find('.*\.sql', true);
+        $total = count($files);
+        if ($total > 0) {
+            foreach ($files as $key => $value) {
+                if ($key < ($total - 7)) {
+                    $f = new File($diretorio . $value, true, 0644);
+                    $f->delete();
+                    $f->close();
+                }
+            }
+        }
         $this->response->file(
                 $file, ['download' => true, 'name' => $name]
         );
